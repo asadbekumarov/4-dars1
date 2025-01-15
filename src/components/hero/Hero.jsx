@@ -31,21 +31,16 @@ const Hero = () => {
   async function fetchData() {
     const response = await fetch("https://dummyjson.com/users");
     if (!response.ok) {
-      throw new Error("Failed to fetch data");
+      throw new Error("eror");
     }
     const result = await response.json();
     return result;
   }
 
-  if (isLoading)
-    return <p className="text-center text-blue-500">Yuklanmoqda...</p>;
+  if (isLoading) return <p className="text-center text-blue-500">loading...</p>;
 
   if (error)
-    return (
-      <p className="text-center text-red-500">
-        Xatolik yuz berdi: {error.message}
-      </p>
-    );
+    return <p className="text-center text-red-500">Xato: {error.message}</p>;
 
   return (
     <div className="p-6 bg-gray-100 min-h-screen">
@@ -82,7 +77,7 @@ const Hero = () => {
           </li>
         ))}
       </ul>
-      <ToastContainer/>
+      <ToastContainer />
     </div>
   );
 };
